@@ -3,15 +3,15 @@
 # How to migrate form old hosting/vps to new one
 
 1. Import old mysql db to new db
-'''
+```
 docker-compose exec db sh -c 'mysql -uroot -p${MYSQL_ROOT_PASSWORD} wordpress < /var/lib/mysql/gulan.sql'
-'''
+```
 2. Set wp_options 
-'''
+```
 docker-compose exec db sh -c 'mysql -uroot -p${MYSQL_ROOT_PASSWORD}'
 update wp_options set option_value = 'http://193.46.198.195' where option_name = 'home';
 update wp_options set option_value = 'http://193.46.198.195' where option_name = 'siteurl';
-'''
+```
 4. Comment condition in wp-config.php
 ```
 //if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
