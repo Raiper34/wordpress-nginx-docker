@@ -18,7 +18,7 @@ update wp_options set option_value = 'http://193.46.198.195' where option_name =
 	$_SERVER['HTTPS'] = 'on';
 //}
 ```
-5. Upload old wordpress file and setup rights
+5. Upload old wordpress file and setup rights and replace old wp-config.php with new wp-config.php from this repo
 ```
 docker exec -it vps-wordpress-1 /bin/bash
 chown -R www-data:www-data /var/www/html/wp-content/
